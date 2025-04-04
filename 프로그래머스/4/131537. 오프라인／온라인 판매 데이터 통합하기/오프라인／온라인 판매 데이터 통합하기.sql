@@ -1,9 +1,18 @@
 -- 코드를 입력하세요
-SELECT to_char(sales_date, 'YYYY-MM-DD') as sales_date, product_id, user_id, sales_amount
-from online_sale
-where to_char(sales_date, 'YYYYMM') = '202203'
-union all
-select to_char(sales_date, 'YYYY-MM-DD') as sales_date, product_id, null as user_id, sales_amount
-from offline_sale
-where to_char(sales_date, 'YYYYMM') = '202203'
-order by sales_date, product_id, user_id;
+SELECT DATE_FORMAT(SALES_DATE, '%Y-%m-%d') SALES_DATE, 
+        PRODUCT_ID, 
+        USER_ID, 
+        SALES_AMOUNT
+FROM ONLINE_SALE
+WHERE date_format(sales_date, '%Y-%m') = '2022-03'
+
+UNION ALL
+
+SELECT DATE_FORMAT(SALES_DATE, '%Y-%m-%d') SALES_DATE,
+        PRODUCT_ID, 
+        NULL AS USER_ID,
+        SALES_AMOUNT
+FROM OFFLINE_SALE
+WHERE date_format(sales_date, '%Y-%m') = '2022-03'
+
+ORDER BY SALES_DATE, PRODUCT_ID, USER_ID;
