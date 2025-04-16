@@ -7,6 +7,7 @@ A median is defined as a number separating the higher half of a data set from th
 
 **Input Format**
 The STATION table is described as follows:
+
 |Field|Type|
 |---|---|
 |ID|NUMBER|
